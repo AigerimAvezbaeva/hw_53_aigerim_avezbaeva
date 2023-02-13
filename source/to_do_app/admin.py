@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from source.to_do_app.models import ToDoParagraph
+from to_do_app.models import ToDoParagraph
 
 
 # Register your models here.
