@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Добавление</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="main-header">
+        <div class="container">
+            <ul class="navbar">
+                <li class="nav">
+                  <a class="link" href="/to_do_list">Все задачи</a>
+                </li>
+                <li class="nav">
+                  <a class="link" href="">Добавить задачу</a>
+                </li>
+              </ul>
+        </div>
+    </header>
+<main class="main">
+    <div class="container">
+    <div class="card">
+  <form action="/to_do_list/add/" method="post">
+    {% csrf_token %}
+    <div class="form_row">
+      <label for="title" class="par">Задача</label>
+        <textarea class="textarea" id="title" name="title"></textarea>
+    </div>
+    <div class="form_row">
+      <label for="status" class="par">Статус</label>
+      <select id="status" name="status" class="user_input" required>
+          {% for status in context.statuses %}
+          <option value="status" > {{ status }} </option>
+          {%endfor%}
+      </select>
+    </div>
+     <div class="form_row">
+         <label for="completion_date" class="par">Дата выполнения</label>
+        <input id="completion_date" max="2018-12-31" min="2018-01-01"
+               name="completion_date"
+               required=false type="date" value="2018-07-22">
+     </div>
+    <div class="form_row">
+      <input type="submit">
+    </div>
+  </form>
+</div>
+</div>
+</main>
+<footer class="footer">
+    <div class="container">
+<p class="copyright white-text">Copyright 2023 Attractor</p>
+</div>
+</footer>
+</div>
+</body>
+</html>
