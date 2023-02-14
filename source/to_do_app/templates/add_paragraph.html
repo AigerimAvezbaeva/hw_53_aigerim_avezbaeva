@@ -32,16 +32,16 @@
     <div class="form_row">
       <label for="status" class="par">Статус</label>
       <select id="status" name="status" class="user_input" required>
-          {% for status in context.statuses %}
-          <option value="status" > {{ status }} </option>
-          {%endfor%}
+          <option value="new" >Новая</option>
+          <option value="in_process" >В процессе</option>
+          <option value="complete" >Завершена</option>
       </select>
     </div>
      <div class="form_row">
          <label for="completion_date" class="par">Дата выполнения</label>
-        <input id="completion_date" max="2018-12-31" min="2018-01-01"
+        <input id="completion_date" max="2023-12-31" min="2023-01-01"
                name="completion_date"
-               required=false type="date" value="2018-07-22">
+               required=false type="date">
      </div>
     <div class="form_row">
       <input type="submit">
