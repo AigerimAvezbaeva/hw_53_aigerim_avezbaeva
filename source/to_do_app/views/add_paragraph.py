@@ -13,12 +13,11 @@ def add_paragraph(request: WSGIRequest):
         'status': request.POST.get('status'),
         'completion_date': request.POST.get('completion_date')
     }
-    ToDoParagraph.objects.create(**paragraph_data)
-    statuses = ToDoParagraph.return_choices()
-    context = {
-        'statuses': statuses
-    }
-    render(request, 'add_paragraph.html', context=context)
-    return redirect(request, 'to_do_list.html')
+    paragraph = ToDoParagraph.objects.create(**paragraph_data)
+    return redirect(f'/to_do_list/?pk={paragraph.pk}')
 
-
+def paragraph_view(request):
+    paragraph_pk = request.GET.get('pk')
+    paragraph = ToDoParagraph.objects.get(pk=paragraph_pk)
+    context = {'paragraph': paragraph}
+    return render(request, 'to_do_paragraph.html', context=context)
