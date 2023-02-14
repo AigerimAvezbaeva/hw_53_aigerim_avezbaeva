@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Задачи</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="main-header">
+        <div class="container">
+            <ul class="navbar">
+                <li class="nav">
+                  <a class="link" href="/to_do_list">Все задачи</a>
+                </li>
+                <li class="nav">
+                  <a class="link" href="/to_do_list/add/">Добавить задачу</a>
+                </li>
+              </ul>
+        </div>
+    </header>
+    <main class="main">
+    <div class="container">
+    <div class="card">
+        {% if context.paragraphs %}
+        {% for paragraph in paragraphs %}
+            <h3 class="par">{{ paragraph.title }}  <b class="par-title">{{ paragraph.status }}</b></h3>
+        <p><a href="/to_do_list/delete/?pk={{ paragraph.pk }}" class="par">Удалить</a></p>
+        {%endfor%}
+        {% else %}
+        <h3 class="par">Нет задач. Необходимо добавить.</h3>
+
+        {%endif%}
+        </div>
+    </div>
+    </main>
+<footer class="footer">
+    <div class="container">
+<p class="copyright white-text">Copyright 2023 Attractor</p>
+</div>
+</footer>
+</div>
+</body>
+</html>
