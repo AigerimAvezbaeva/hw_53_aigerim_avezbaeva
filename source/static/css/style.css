@@ -3,8 +3,10 @@
     margin: 0 auto;
 }
 body{
-    background-color: #deddd0;
     height:100%;
+    font-family: Arial san-serif;
+    color: black;
+    margin-top: 60px;
 }
 
 header{
@@ -13,10 +15,15 @@ header{
     text-align:center;
 }
 .par{
+    margin: 20px;
     padding: 20px;
+    padding-left: 50px;
     color:#505050;
 }
+.parlink{
 
+    color:#505050;
+}
 .textarea{
     width: 50%;
     height: 40px;
@@ -33,9 +40,7 @@ header{
     border-radius: 3px;
     align: center;
 }
-.main{
 
-}
 .par-title{
     margin-left:10px;
     padding: 3px;
@@ -50,9 +55,80 @@ header{
 }
 
 .container{
-    max-width: 980px;
+    margin: 0 auto;
+    width: 1175px;
+}
+.navbar {
+    display: block;
+    background: #54865d;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: 0;
+    box-sizing: border-box;
+    padding: 7px 30px;
 }
 
+.menu {
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    color: #fffee8;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    padding: 5px 15px;
+}
+
+.menu a:hover {
+    color: #ffc122;
+    text-decoration: underline;
+}.navbar {
+    display: block;
+    background: #6a7dff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: 0;
+    box-sizing: border-box;
+    padding: 7px 30px;
+}
+
+.menu {
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    color: #fffee8;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    padding: 5px 15px;
+}
+
+.menu a:hover {
+    color: #ffc122;
+    text-decoration: underline;
+}
 .nav{
     color: white;
 }
@@ -83,4 +159,14 @@ header{
 .form_row{
     padding:15px;
     width:80%;
+}
+.footer{
+    bottom: 0;
+    height: 80px;
+    background-color: black;
+}
+.copiright{
+    color: #fff;
+    font-size: 14px;
+    padding: 30px 0 30px 0;
 }
