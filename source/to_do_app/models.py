@@ -9,6 +9,7 @@ class ToDoParagraph(models.Model):
         ('complete', 'Завершена')
     )
     title = models.CharField(max_length=400, blank=False, null=False, verbose_name='Задача')
+    description = models.TextField(max_length=2000, blank=False, null=False, verbose_name='Описание задачи')
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, blank=False,  default='new', verbose_name='Статус задачи')
     completion_date = models.DateField(verbose_name='Дата выполнения', blank=True, null=True)
 
