@@ -1,5 +1,5 @@
 from django.core.handlers.wsgi import WSGIRequest
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from to_do_app.models import ToDoParagraph
 
@@ -15,11 +15,11 @@ def add_paragraph(request: WSGIRequest):
         'completion_date': request.POST.get('completion_date')
     }
     paragraph = ToDoParagraph.objects.create(**paragraph_data)
-    return redirect(f'/to_do_list/?pk={paragraph.pk}')
+    return redirect('paragraph_detail', pk=paragraph.pk)
 
 
-def paragraph_view(request):
-    paragraph_pk = request.GET.get('pk')
-    paragraph = ToDoParagraph.objects.get(pk=paragraph_pk)
-    context = {'paragraph': paragraph}
-    return render(request, 'to_do_paragraph.html', context=context)
+def paragraph_view(request, pk):
+    paragraph = get_object_or_404(ToDoParagraph, pk=pk)
+    return render(request, 'to_do_paragraph.html', context={
+        'paragraph': paragraph
+    })
