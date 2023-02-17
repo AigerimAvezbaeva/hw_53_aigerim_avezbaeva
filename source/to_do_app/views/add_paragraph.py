@@ -10,11 +10,13 @@ def add_paragraph(request: WSGIRequest):
 
     paragraph_data = {
         'title': request.POST.get('title'),
+        'description': request.POST.get('description'),
         'status': request.POST.get('status'),
         'completion_date': request.POST.get('completion_date')
     }
     paragraph = ToDoParagraph.objects.create(**paragraph_data)
     return redirect(f'/to_do_list/?pk={paragraph.pk}')
+
 
 def paragraph_view(request):
     paragraph_pk = request.GET.get('pk')
