@@ -1,38 +1,17 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Задачи</title>
-</head>
-<body>
-<div class="wrapper">
-    <header class="main-header">
-        <div class="container">
-            <ul class="navbar">
-                <li class="nav">
-                  <a class="link" href="/to_do_list">Все задачи</a>
-                </li>
-                <li class="nav">
-                  <a class="link" href="/to_do_list/add/">Добавить задачу</a>
-                </li>
-              </ul>
-        </div>
-    </header>
+{% extends 'base.html' %}
+{% block title %}
+To Do Paragraph
+{% endblock %}
+
+{% block content %}
     <main class="main">
     <div class="container">
     <div class="card">
-        <h3 class="par">{{ paragraph.title }}  <b class="par-title">{{ paragraph.status }}</b></h3>
+        <h3 class="par">{{ paragraph.title }}
+            <br> <b class="par-title"> Описание задачи: {{ paragraph.description }}</b>
+            <br> <b class="par-title"> Статус задачи: {{ paragraph.status }}</b>
+        </h3>
         <p><a href="/" class="par">На главную</a></p>
     </div>
-    </div>
-    </main>
-<footer class="footer">
-    <div class="container">
-<p class="copyright white-text">Copyright 2023 Attractor</p>
-</div>
-</footer>
-</div>
-</body>
-</html>
+
+{% endblock %}

@@ -1,33 +1,20 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Добавление</title>
-</head>
-<body>
-<div class="wrapper">
-    <header class="main-header">
-        <div class="container">
-            <ul class="navbar">
-                <li class="nav">
-                  <a class="link" href="/to_do_list">Все задачи</a>
-                </li>
-                <li class="nav">
-                  <a class="link" href="">Добавить задачу</a>
-                </li>
-              </ul>
-        </div>
-    </header>
+{% extends 'base.html' %}
+{% block title %}
+Article Create
+{% endblock %}
+{% block content %}
 <main class="main">
     <div class="container">
     <div class="card">
-  <form action="/to_do_list/add/" method="post">
+  <form action="{% url 'add_paragraph' %}" method="post">
     {% csrf_token %}
     <div class="form_row">
       <label for="title" class="par">Задача</label>
         <textarea class="textarea" id="title" name="title"></textarea>
+    </div>
+    <div class="form_row">
+      <label for="description" class="par">Описание</label>
+        <textarea class="textarea" id="description" name="description" class="par-description"></textarea>
     </div>
     <div class="form_row">
       <label for="status" class="par">Статус</label>
@@ -50,11 +37,5 @@
 </div>
 </div>
 </main>
-<footer class="footer">
-    <div class="container">
-<p class="copyright white-text">Copyright 2023 Attractor</p>
-</div>
-</footer>
-</div>
-</body>
-</html>
+
+{% endblock %}
